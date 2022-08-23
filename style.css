@@ -7,19 +7,19 @@
 }
 
 .edit {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .edit:hover {
-  opacity: 1;
-}
-
-.delete {
   opacity: 0.5;
 }
 
-.delete:hover {
+.delete {
   opacity: 1;
+}
+
+.delete:hover {
+  opacity: 0.5;
 }
 
 [type="checkbox"] + label {
