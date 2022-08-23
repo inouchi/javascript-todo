@@ -11,9 +11,26 @@ const getRandomStr = (len) => {
 };
 
 /**
+ * 対象のタスクのチェックボタン押下時の処理を定義
+ */
+const addCheckboxListener = (checkbox, id) => {
+  checkbox.addEventListener("change", () => {
+    const target = document.getElementById(id);
+    const checkbox = target.querySelector(".checkbox");
+    const name = target.querySelector(".name");
+
+    if (checkbox.checked) {
+      name.classList.add("completed");
+    } else {
+      name.classList.remove("completed");
+    }
+  });
+};
+
+/**
  * 対象のタスクを編集する関数を定義
  */
-const addEditeListener = (tbody, button, id) => {
+const addEditeListener = (button, id) => {
   button.addEventListener("click", () => {
     const content = prompt("修正後のタスク内容を入力してください。");
 
@@ -53,6 +70,7 @@ const addTask = (tbody, task) => {
   // HTML要素を取得
   const tr = clone.querySelector("tr");
   const name = clone.querySelector(".name");
+  const checkbox = clone.querySelector(".checkbox");
   const editButton = clone.querySelector(".edit");
   const deleteButton = clone.querySelector(".delete");
 
@@ -62,8 +80,10 @@ const addTask = (tbody, task) => {
   // タスク内容を設定
   name.textContent = task.name;
 
+  addCheckboxListener(checkbox, task.id);
+
   // 編集ボタンのイベントを設定
-  addEditeListener(tbody, editButton, task.id);
+  addEditeListener(editButton, task.id);
 
   // 削除ボタンのイベントを設定
   addDeleteListener(tbody, deleteButton, task.id);
