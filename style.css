@@ -1,0 +1,31 @@
+.hidden {
+  display: none;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.edit {
+  opacity: 0.5;
+}
+
+.edit:hover {
+  opacity: 1;
+}
+
+.delete {
+  opacity: 0.5;
+}
+
+.delete:hover {
+  opacity: 1;
+}
+
+[type="checkbox"] + label {
+  top: 4px;
+}
+
+.checkbox-span {
+  display: flex !important;
+}
